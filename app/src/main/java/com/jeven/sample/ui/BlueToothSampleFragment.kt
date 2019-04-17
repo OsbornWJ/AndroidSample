@@ -14,7 +14,7 @@ import com.jeven.sample.R
  * 邮箱:   liaowenjie@sto.cn
  * 功能:
  */
-class BlueTouchSampleFragment : Fragment() {
+class BlueToothSampleFragment : Fragment() {
 
     private lateinit var blueTouchManager: BluetoothManager
 

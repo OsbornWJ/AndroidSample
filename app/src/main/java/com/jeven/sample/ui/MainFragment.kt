@@ -9,8 +9,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
-import com.jeven.sample.BaseAdapter
-import com.jeven.sample.BaseViewHolder
+import com.jeven.sample.ui.adapter.BaseAdapter
+import com.jeven.sample.ui.adapter.BaseViewHolder
 import com.jeven.sample.R
 import kotlinx.android.synthetic.main.comm_recyclerview.*
 
@@ -32,7 +32,7 @@ class MainFragment : Fragment() {
                     .setBackgroundColor(android.R.id.text1, 0xFFFAF0E6.toInt())
                 when (item) {
                     "蓝牙模块" -> {
-                        viewHolder.getView<View>(android.R.id.text1).setOnClickListener { it.findNavController().navigate(R.id.action_mainFragment_to_blueTouchSampleFragment) }
+                        viewHolder.getView<View>(android.R.id.text1).setOnClickListener { it.findNavController().navigate(R.id.action_mainFragment_to_blueToothSampleFragment) }
                     }
                 }
             }

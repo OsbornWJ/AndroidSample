@@ -1,4 +1,4 @@
-package com.jeven.sample
+package com.jeven.sample.ui.adapter
 
 import android.support.annotation.ColorInt
 import android.support.annotation.IdRes

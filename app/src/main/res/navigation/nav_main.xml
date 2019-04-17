@@ -8,15 +8,15 @@
 
     <fragment android:id="@+id/mainFragment" android:name="com.jeven.sample.ui.MainFragment"
               android:label="fragment_main" tools:layout="@layout/comm_recyclerview">
-        <action android:id="@+id/action_mainFragment_to_blueTouchSampleFragment"
-                app:destination="@id/blueTouchSampleFragment"
+        <action android:id="@+id/action_mainFragment_to_blueToothSampleFragment"
+                app:destination="@id/blueToothSampleFragment"
                 app:enterAnim="@anim/slide_in_right"
                 app:exitAnim="@anim/slide_out_left"
                 app:popEnterAnim="@anim/slide_in_left"
                 app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
 
-    <fragment android:id="@+id/blueTouchSampleFragment"
-              android:name="com.jeven.sample.ui.BlueTouchSampleFragment"
+    <fragment android:id="@+id/blueToothSampleFragment"
+              android:name="com.jeven.sample.ui.BlueToothSampleFragment"
               android:label="@string/bluetouch_sample_fragment"/>
 </navigation>
