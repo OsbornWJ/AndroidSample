@@ -16,8 +16,6 @@ import com.jeven.sample.R
  */
 class BlueToothSampleFragment : Fragment() {
 
-    private lateinit var blueTouchManager: BluetoothManager
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.blue_touch_fragment, container, false)
     }
