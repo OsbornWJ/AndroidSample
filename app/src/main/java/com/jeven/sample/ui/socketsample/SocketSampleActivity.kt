@@ -1,6 +1,6 @@
 package com.jeven.sample.ui.socketsample
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.jeven.sample.R
 

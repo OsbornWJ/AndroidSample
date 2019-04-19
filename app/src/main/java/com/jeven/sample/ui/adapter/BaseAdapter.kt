@@ -1,7 +1,6 @@
 package com.jeven.sample.ui.adapter
 
-import android.support.annotation.LayoutRes
-import android.support.v7.widget.RecyclerView
+import androidx.annotation.LayoutRes
 import android.view.LayoutInflater
 import android.view.ViewGroup
 
@@ -10,7 +9,7 @@ import android.view.ViewGroup
  * 邮箱:   liaowenjie@sto.cn
  * 功能:
  */
-abstract class BaseAdapter<T>() : RecyclerView.Adapter<BaseViewHolder>() {
+abstract class BaseAdapter<T>() : androidx.recyclerview.widget.RecyclerView.Adapter<BaseViewHolder>() {
 
     private var mData: MutableList<T> = mutableListOf()
     @LayoutRes var layoutId: Int = 0
@@ -35,7 +34,7 @@ abstract class BaseAdapter<T>() : RecyclerView.Adapter<BaseViewHolder>() {
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): BaseViewHolder {
-        return createMultiViewHolder(viewGroup, i)
+        return createMultiViewHolder(viewGroup)
     }
 
     override fun onBindViewHolder(viewHolder: BaseViewHolder, i: Int) = binfMultiViewHolder(viewHolder, mData[i])
@@ -44,7 +43,7 @@ abstract class BaseAdapter<T>() : RecyclerView.Adapter<BaseViewHolder>() {
         return mData.size
     }
 
-    fun createMultiViewHolder(viewGroup: ViewGroup, i: Int): BaseViewHolder {
+    fun createMultiViewHolder(viewGroup: ViewGroup): BaseViewHolder {
         val view = LayoutInflater.from(viewGroup.context).inflate(layoutId, viewGroup, false)
         return BaseViewHolder(view, this)
     }

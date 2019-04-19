@@ -1,8 +1,8 @@
 package com.jeven.sample.ui.adapter
 
-import android.support.annotation.ColorInt
-import android.support.annotation.IdRes
-import android.support.v7.widget.RecyclerView
+import androidx.annotation.ColorInt
+import androidx.annotation.IdRes
+import androidx.recyclerview.widget.RecyclerView
 import android.util.SparseArray
 import android.view.View
 import android.widget.TextView
@@ -12,7 +12,7 @@ import android.widget.TextView
  * 邮箱:   liaowenjie@sto.cn
  * 功能:
  */
-class BaseViewHolder(val covertVuew: View, var adapter: BaseAdapter<*>): RecyclerView.ViewHolder(covertVuew) {
+class BaseViewHolder(val covertVuew: View, var adapter: BaseAdapter<*>): androidx.recyclerview.widget.RecyclerView.ViewHolder(covertVuew) {
 
     /**
      * Views indexed with their IDs

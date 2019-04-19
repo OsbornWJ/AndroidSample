@@ -1,20 +1,17 @@
 package com.jeven.sample.ui
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v7.widget.DividerItemDecoration
-import android.support.v7.widget.DividerItemDecoration.VERTICAL
-import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration.VERTICAL
+import com.jeven.sample.R
 import com.jeven.sample.ui.adapter.BaseAdapter
 import com.jeven.sample.ui.adapter.BaseViewHolder
-import com.jeven.sample.R
 import kotlinx.android.synthetic.main.comm_recyclerview.*
 
-class MainFragment : Fragment() {
+class MainFragment : BaseFragment() {
 
     private val data = arrayListOf("蓝牙模块")
 
@@ -24,8 +21,8 @@ class MainFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewData.layoutManager = LinearLayoutManager(context)
-        viewData.addItemDecoration(DividerItemDecoration(context, VERTICAL))
+        viewData.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
+        viewData.addItemDecoration(androidx.recyclerview.widget.DividerItemDecoration(context, VERTICAL))
         viewData.adapter = object: BaseAdapter<String>(data, android.R.layout.simple_list_item_1) {
             override fun binfMultiViewHolder(viewHolder: BaseViewHolder, item: String) {
                 viewHolder.setText(android.R.id.text1, item)

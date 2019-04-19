@@ -7,7 +7,7 @@
 
 
     <fragment android:id="@+id/mainFragment" android:name="com.jeven.sample.ui.MainFragment"
-              android:label="fragment_main" tools:layout="@layout/comm_recyclerview">
+              android:label="AndroidSample" tools:layout="@layout/comm_recyclerview">
         <action android:id="@+id/action_mainFragment_to_blueToothSampleFragment"
                 app:destination="@id/blueToothSampleFragment"
                 app:enterAnim="@anim/slide_in_right"

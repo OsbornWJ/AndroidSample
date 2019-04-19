@@ -2,6 +2,8 @@ package com.jeven.sample.utils
 
 import android.annotation.SuppressLint
 import android.app.Application
+import android.content.Context
+import android.location.LocationManager
 
 /**
  * 创建人: Jeven
@@ -20,5 +22,15 @@ object AppUtil {
     fun getApplication(): Application {
         return mContext
     }
+
+    /**
+     * 检查GPS是否打开
+     * @return
+     */
+    fun checkGPSIsOpen(): Boolean {
+        val locationManager:LocationManager = mContext.getSystemService(Context.LOCATION_SERVICE) as LocationManager
+        return locationManager.isProviderEnabled(android.location.LocationManager.GPS_PROVIDER)
+    }
+
 
 }
