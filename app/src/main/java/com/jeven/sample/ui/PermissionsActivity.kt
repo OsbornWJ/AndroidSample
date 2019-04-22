@@ -32,12 +32,12 @@ open class PermissionsActivity: AppCompatActivity() {
 
     protected val REQUEST_CODE_OPEN_GPS:Int = 2001
 
-    @NeedsPermission(Manifest.permission.ACCESS_FINE_LOCATION)
-    fun enableGPS(message: String) {
+    @NeedsPermission(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION)
+    fun enableGPS() {
         if (!AppUtil.checkGPSIsOpen()) {
             AlertDialog.Builder(this)
                 .setTitle("提示")
-                .setMessage(message)
+                .setMessage("扫描蓝牙需要打开手机定位")
                 .setNegativeButton("取消"
                 ) { dialog, _ -> dialog!!.dismiss() }
                 .setPositiveButton("确定") { dialog, _ ->
@@ -48,6 +48,7 @@ open class PermissionsActivity: AppCompatActivity() {
                 }
                 .show()
         }
+
     }
 
     @OnShowRationale(Manifest.permission.ACCESS_FINE_LOCATION)
