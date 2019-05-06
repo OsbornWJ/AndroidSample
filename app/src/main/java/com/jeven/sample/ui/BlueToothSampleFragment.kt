@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.jeven.sample.R
 import com.jeven.sample.ui.adapter.BaseAdapter
 import com.jeven.sample.ui.adapter.BaseViewHolder
@@ -23,7 +24,7 @@ class BlueToothSampleFragment : BaseFragment() {
 
     var mData: MutableList<BluetoothDevice> = mutableListOf()
     var mBondedData: MutableList<BluetoothDevice> = mutableListOf()
-    var blueToothHelper: BluetoothHelper? = null
+    private var blueToothHelper: BluetoothHelper? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.blue_touch_fragment, container, false)
@@ -39,18 +40,19 @@ class BlueToothSampleFragment : BaseFragment() {
         getParent().enableGPSWithPermissionCheck()
         blueToothHelper = BluetoothHelper.from(this.context!!)
 
-        viewData.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
-        viewData.addItemDecoration(androidx.recyclerview.widget.DividerItemDecoration(context,
+        viewData.layoutManager = LinearLayoutManager(context)
+        viewData.addItemDecoration(DividerItemDecoration(context,
             DividerItemDecoration.VERTICAL
         ))
         viewData.adapter = object: BaseAdapter<BluetoothDevice>(mData, android.R.layout.simple_list_item_1) {
             override fun binfMultiViewHolder(viewHolder: BaseViewHolder, item: BluetoothDevice) {
                 viewHolder.setText(android.R.id.text1, item?.let { it.name+"  "+it.address })
                     .setBackgroundColor(android.R.id.text1, 0xFFFAF0E6.toInt())
+                viewHolder.getView<View>(android.R.id.text1).setOnClickListener { blueToothHelper?.bindDevice(item) }
             }
         }
-        bindedDevice.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
-        bindedDevice.addItemDecoration(androidx.recyclerview.widget.DividerItemDecoration(context,
+        bindedDevice.layoutManager = LinearLayoutManager(context)
+        bindedDevice.addItemDecoration(DividerItemDecoration(context,
             DividerItemDecoration.VERTICAL
         ))
         bindedDevice.adapter = object: BaseAdapter<BluetoothDevice>(mBondedData, android.R.layout.simple_list_item_1) {

@@ -6,6 +6,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import java.lang.reflect.Method
 
 /**
  * 创建人: Jeven
@@ -18,7 +19,8 @@ class BluetoothHelper private constructor(context: Context) {
 
     private var mBluetoothAdapter: BluetoothAdapter? = null
 
-    private var mOnSearchDeviceListener: OnSearchDeviceListener? = null
+    private var mOnSearchDeviceListener: OnSearchDeviceListener? = null  //查询蓝牙设备回调
+    private var mOnBindDeviceListener: OnBindDeviceListener? = null      //绑定蓝牙设备回调
 
     private var mContext: Context? = null
 
@@ -47,6 +49,10 @@ class BluetoothHelper private constructor(context: Context) {
         }
     }
 
+
+    /**
+     * search device
+     */
     fun searchDevice(onSearchDeviceListener: OnSearchDeviceListener) {
         this.mOnSearchDeviceListener = onSearchDeviceListener
         if (mBluetoothAdapter == null) {
@@ -69,6 +75,9 @@ class BluetoothHelper private constructor(context: Context) {
         mBluetoothAdapter!!.startDiscovery()
     }
 
+    /**
+     * close bluetooth
+     */
     fun close() {
         mBluetoothAdapter!!.cancelDiscovery()
         if (mReceiver != null) {
@@ -76,6 +85,23 @@ class BluetoothHelper private constructor(context: Context) {
         }
     }
 
+    /**
+     * 绑定设备
+     */
+    fun bindDevice(device: BluetoothDevice?) {
+        BluetoothUtil.pinDeveice(device)
+    }
+
+    /**
+     * 解绑设备
+     */
+    fun removeBind(device: BluetoothDevice?) {
+        BluetoothUtil.removePin(device)
+    }
+
+    /**
+     * 蓝牙查询接收器
+     */
     private inner class Receiver : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
             val action = intent.action
@@ -89,6 +115,33 @@ class BluetoothHelper private constructor(context: Context) {
                 //mOnSearchDeviceListener!!.onSearchCompleted(mBondedList, mNewList)
             }
         }
+    }
+
+    private inner class PinBlueReciver : BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent) {
+            val device = intent.getParcelableExtra<BluetoothDevice>(BluetoothDevice.EXTRA_DEVICE)
+            when (intent.action) {
+                BluetoothDevice.ACTION_PAIRING_REQUEST -> {
+                    if (mOnBindDeviceListener == null) return
+                    mOnBindDeviceListener?.onBindRequest()
+                    //绑定设备
+                    val setPairingConfirmation: Method = device.javaClass.getMethod("setPairingConfirmation", Boolean.javaClass)
+                    setPairingConfirmation.invoke(device,true)
+
+                    abortBroadcast()
+
+                    //3.调用setPin方法进行配对...
+//                boolean ret = ClsUtils.setPin(device.getClass(), device, pin);
+//                    Method removeBondMethod = device.getClass().getDeclaredMethod("setPin", new Class[]{byte[].class});
+//                    Boolean returnValue = (Boolean) removeBondMethod.invoke(device, new Object[]{pin.getBytes()});
+
+                }
+                BluetoothDevice.ACTION_BOND_STATE_CHANGED -> {
+
+                }
+            }
+        }
+
     }
 
 }
