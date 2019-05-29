@@ -5,7 +5,6 @@ import com.jeven.sample.BuildConfig
 
 /**
  * 创建人: Jeven
- * 邮箱:   liaowenjie@sto.cn
  * 功能:
  */
 object SampleLogUtil {

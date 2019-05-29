@@ -1,4 +1,4 @@
-package com.jeven.sample.ui
+package com.jeven.sample.ui.bluetooth
 
 import android.bluetooth.BluetoothDevice
 import android.os.Bundle
@@ -8,8 +8,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jeven.sample.R
+import com.jeven.sample.ui.BaseFragment
 import com.jeven.sample.ui.adapter.BaseAdapter
 import com.jeven.sample.ui.adapter.BaseViewHolder
+import com.jeven.sample.ui.enableGPSWithPermissionCheck
 import com.jeven.sample.utils.bluetooth.BluetoothHelper
 import com.jeven.sample.utils.bluetooth.OnSearchDeviceListener
 import kotlinx.android.synthetic.main.blue_touch_fragment.*
@@ -17,7 +19,6 @@ import kotlinx.android.synthetic.main.comm_recyclerview.*
 
 /**
  * 创建人: Jeven
- * 邮箱:   liaowenjie@sto.cn
  * 功能:
  */
 class BlueToothSampleFragment : BaseFragment() {
@@ -62,6 +63,7 @@ class BlueToothSampleFragment : BaseFragment() {
         }
         blueToothHelper!!.searchDevice(object : OnSearchDeviceListener {
             override fun onNewDeviceFound(device: BluetoothDevice) {
+                if (viewData == null) return
                 if (device.bondState == BluetoothDevice.BOND_NONE) {
                     mData.add(device)
                     viewData.adapter!!.notifyDataSetChanged()

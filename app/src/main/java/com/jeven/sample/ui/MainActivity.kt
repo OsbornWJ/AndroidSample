@@ -15,6 +15,9 @@ import com.google.android.material.snackbar.Snackbar
 import com.jeven.sample.R
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
+import android.content.Intent
+import android.net.Uri
+
 
 class MainActivity : PermissionsActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -26,9 +29,12 @@ class MainActivity : PermissionsActivity(), NavigationView.OnNavigationItemSelec
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+        fab.setOnClickListener {
+            val data = Intent(Intent.ACTION_SENDTO)
+            data.data = Uri.parse("mailto:Osbornjie@163.com")
+            data.putExtra(Intent.EXTRA_SUBJECT, "hello coder")
+            data.putExtra(Intent.EXTRA_TEXT, "")
+            startActivity(data)
         }
 
         nav_view.setNavigationItemSelectedListener(this)

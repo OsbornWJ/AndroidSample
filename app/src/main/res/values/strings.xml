@@ -6,13 +6,17 @@
     <string name="nav_header_title">AndroidSample</string>
     <string name="nav_header_subtitle">Osbornjie@163.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">换肤</string>
 
     <string name="button_allow">同意</string>
     <string name="button_deny">拒绝</string>
     <string name="permission_location">是否共享你的位置</string>
 
     <string name="bluetouch_sample_fragment">蓝牙测试</string>
+    <string name="sqlite_sample_fragment">SQLite测试</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

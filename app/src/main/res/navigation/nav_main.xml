@@ -8,8 +8,16 @@
 
     <fragment android:id="@+id/mainFragment" android:name="com.jeven.sample.ui.MainFragment"
               android:label="AndroidSample" tools:layout="@layout/comm_recyclerview">
+
         <action android:id="@+id/action_mainFragment_to_blueToothSampleFragment"
                 app:destination="@id/blueToothSampleFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
+
+        <action android:id="@+id/action_mainFragment_to_sqliteTestFragment"
+                app:destination="@id/sqliteTestFragment"
                 app:enterAnim="@anim/slide_in_right"
                 app:exitAnim="@anim/slide_out_left"
                 app:popEnterAnim="@anim/slide_in_left"
@@ -17,6 +25,11 @@
     </fragment>
 
     <fragment android:id="@+id/blueToothSampleFragment"
-              android:name="com.jeven.sample.ui.BlueToothSampleFragment"
+              android:name="com.jeven.sample.ui.bluetooth.BlueToothSampleFragment"
               android:label="@string/bluetouch_sample_fragment"/>
+
+    <fragment android:id="@+id/sqliteTestFragment"
+              android:name="com.jeven.sample.ui.sqlite.SqliteTestFragment"
+              android:label="@string/sqlite_sample_fragment"/>
+
 </navigation>

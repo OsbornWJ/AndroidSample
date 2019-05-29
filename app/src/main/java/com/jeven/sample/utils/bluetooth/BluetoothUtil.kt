@@ -7,7 +7,6 @@ import java.lang.reflect.Method
 
 /**
  * 创建人: Jeven
- * 邮箱:   liaowenjie@sto.cn
  * 功能:
  */
 object BluetoothUtil {

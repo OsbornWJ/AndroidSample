@@ -4,7 +4,6 @@ import android.bluetooth.BluetoothDevice
 
 /**
  * 创建人: Jeven
- * 邮箱:   liaowenjie@sto.cn
  * 功能:   绑定蓝牙设备回调
  */
 interface OnBindDeviceListener : IErrorListener {
