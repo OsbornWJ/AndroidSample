@@ -8,4 +8,5 @@ android中，渐渐的喜欢使用封装好的库包，导致对源码以及设�
 
 本项目使用Jetpack中的Navigation，对该库中的fragment进行管理
 
-<img src="graphics/Android.png" width="100%" height="80%">
+
+<img src="graphics/Android.png" width="100%" height="60%">
