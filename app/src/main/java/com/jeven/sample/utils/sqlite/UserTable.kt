@@ -52,4 +52,15 @@ class UserTable(var dataBase: SQLiteDatabase) : AbstractTable() {
         return users
     }
 
+    fun deleteUser(userName: String) {
+        dataBase.delete(TABLE_NAME, "UserName = ?", arrayOf(userName))
+    }
+
+    fun updateUser(user: User) {
+        val contentValues = ContentValues()
+        contentValues.put("UserName", user.name)
+        contentValues.put("Password", user.password)
+        dataBase.update(TABLE_NAME, contentValues, "Id = ?", arrayOf(user.id.toString()))
+    }
+
 }
