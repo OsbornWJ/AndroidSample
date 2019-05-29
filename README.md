@@ -1,3 +1,3 @@
 # AndroidSample
 
-<img src="graphics/Android.png" height="1800" align="center">
+<img src="graphics/Android.png" width="100%" height="80%">
