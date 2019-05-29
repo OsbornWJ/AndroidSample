@@ -1,3 +1,3 @@
 # AndroidSample
 
-<img src="graphics/Android.png" height="1200" align="center">
+![](https://github.com/OsbornWJ/AndroidSample/blob/master/graphics/Android.png)
