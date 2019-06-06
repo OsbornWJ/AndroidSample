@@ -1,6 +1,7 @@
 package com.jeven.sample.utils.sqlite
 
 import android.content.ContentValues
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import com.jeven.sample.ui.sqlite.entity.User
 
@@ -29,6 +30,10 @@ class UserTable(var dataBase: SQLiteDatabase) : AbstractTable() {
         val contentValues = ContentValues()
         contentValues.put("UserName", userName)
         contentValues.put("Password", passWord)
+        insert(contentValues)
+    }
+
+    fun insert(contentValues: ContentValues) {
         dataBase.insert(TABLE_NAME, null, contentValues)
     }
 
@@ -52,15 +57,28 @@ class UserTable(var dataBase: SQLiteDatabase) : AbstractTable() {
         return users
     }
 
+    fun getCursor(): Cursor {
+        return dataBase.query(TABLE_NAME, arrayOf("Id", "UserName", "Password"), null, null, null, null, null)
+    }
+
     fun deleteUser(userName: String) {
         dataBase.delete(TABLE_NAME, "UserName = ?", arrayOf(userName))
     }
 
+    fun deleteUser(whereClause: String , whereArgs: Array<String>): Int {
+        return dataBase.delete(TABLE_NAME, whereClause, whereArgs)
+    }
+
     fun updateUser(user: User) {
         val contentValues = ContentValues()
+        contentValues.put("Id", user.id)
         contentValues.put("UserName", user.name)
         contentValues.put("Password", user.password)
-        dataBase.update(TABLE_NAME, contentValues, "Id = ?", arrayOf(user.id.toString()))
+        updateUser(contentValues)
+    }
+
+    fun updateUser(contentValues: ContentValues): Int {
+        return dataBase.update(TABLE_NAME, contentValues, "Id = ?", arrayOf(contentValues.get("Id").toString()))
     }
 
 }

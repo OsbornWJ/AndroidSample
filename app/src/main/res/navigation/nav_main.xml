@@ -22,6 +22,13 @@
                 app:exitAnim="@anim/slide_out_left"
                 app:popEnterAnim="@anim/slide_in_left"
                 app:popExitAnim="@anim/slide_out_right"/>
+
+        <action android:id="@+id/action_mainFragment_to_layoutSampleFragment"
+                app:destination="@id/layoutSampleFragment"
+                app:enterAnim="@anim/slide_in_right"
+                app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left"
+                app:popExitAnim="@anim/slide_out_right"/>
     </fragment>
 
     <fragment android:id="@+id/blueToothSampleFragment"
@@ -31,5 +38,9 @@
     <fragment android:id="@+id/sqliteTestFragment"
               android:name="com.jeven.sample.ui.sqlite.SqliteTestFragment"
               android:label="@string/sqlite_sample_fragment"/>
+
+    <fragment android:id="@+id/layoutSampleFragment"
+              android:name="com.jeven.sample.ui.test.LayoutSample"
+              android:label="layout测试"/>
 
 </navigation>

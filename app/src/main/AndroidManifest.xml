@@ -27,6 +27,9 @@
             </intent-filter>
 
         </activity>
+        <provider android:authorities="com.layoutSample.provider"
+                  android:name=".ui.sqlite.MyDataProvider"
+                  android:exported="true"/>
     </application>
 
 </manifest>

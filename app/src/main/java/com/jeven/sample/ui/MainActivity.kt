@@ -17,6 +17,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import android.content.Intent
 import android.net.Uri
+import com.jeven.sample.widget.DragFloatingActionButton
 
 
 class MainActivity : PermissionsActivity(), NavigationView.OnNavigationItemSelectedListener {

@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.comm_recyclerview.*
 
 class MainFragment : BaseFragment() {
 
-    private val data = arrayListOf("蓝牙模块", "数据库测试")
+    private val data = arrayListOf("蓝牙模块", "数据库测试", "布局测试")
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.comm_recyclerview, container, false)
@@ -33,6 +33,9 @@ class MainFragment : BaseFragment() {
                     }
                     "数据库测试" -> {
                         viewHolder.getView<View>(android.R.id.text1).setOnClickListener { it.findNavController().navigate(R.id.action_mainFragment_to_sqliteTestFragment) }
+                    }
+                    "布局测试" -> {
+                        viewHolder.getView<View>(android.R.id.text1).setOnClickListener { it.findNavController().navigate(R.id.action_mainFragment_to_layoutSampleFragment) }
                     }
                 }
             }
