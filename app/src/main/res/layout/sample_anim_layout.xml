@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <com.jeven.sample.ui.anim.AnimationTextView
+            android:id="@+id/animView"
+            android:layout_width="300dp"
+            android:layout_height="45dp"
+            android:text="11122222222222222222211112111122221111
+            11111111111111222222222222222222222211111111111111111
+            11111111111112222222222222222222222
+            22222222222222222222222
+            111111111555555555555555555
+            111111111111111111"
+            />
+
+    <Button
+            android:id="@+id/btn_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="开始"
+            android:onClick="onClick"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="16dp"/>
+
+</LinearLayout>
