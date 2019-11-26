@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <androidx.viewpager.widget.ViewPager
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+    <Button
+            android:id="@+id/testBtn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="当前页面消息"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            />
+
+    <Button
+            android:id="@+id/testBtn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="fragment页面通信"
+            android:layout_below="@id/testBtn1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            />
+
+    <Button
+            android:id="@+id/testBtn3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="测试生命周期"
+            android:layout_below="@id/testBtn2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            />
+
+</RelativeLayout>
+

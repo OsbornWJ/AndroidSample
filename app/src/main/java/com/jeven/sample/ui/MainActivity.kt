@@ -17,6 +17,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 import android.content.Intent
 import android.net.Uri
+import com.jeven.sample.ui.jetpack.LiveBusManage
+import com.jeven.sample.ui.jetpack.LiveDataBus
 import com.jeven.sample.widget.DragFloatingActionButton
 
 
@@ -62,7 +64,12 @@ class MainActivity : PermissionsActivity(), NavigationView.OnNavigationItemSelec
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.action_settings -> true
+            R.id.action_settings -> {
+                LiveDataBus.get().with("busEvent", String::class.java).value = "我发送真事件了"
+              /*  LiveBusManage.getInstance().getChannel("test", String::class.java)
+                    .value = "我发送事件了"*/
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
